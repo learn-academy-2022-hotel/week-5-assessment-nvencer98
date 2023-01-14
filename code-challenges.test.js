@@ -21,6 +21,15 @@ const secretCodeWord2 = "Gobbledygook"
 const secretCodeWord3 = "Eccentric"
 // Expected output: "3cc3ntr1c"
 
+
+const codeMachine = (value) => {
+const coded = value.replace(/a|A/g,"4").replace(/i|I/g,"1").replace(/o|O/g,"0").replace(/e|E/g,"3")
+return coded
+}
+console.log(codeMachine(secretCodeWord1))
+console.log(codeMachine(secretCodeWord2))
+console.log(codeMachine(secretCodeWord3))
+
 // b) Create the function that makes the test pass.
 
 // --------------------2) Create a function that takes in an array of words and a single letter and returns an array of all the words containing that particular letter.
@@ -35,6 +44,16 @@ const letterE = "e"
 // Expected output: ["Cherry", "Blueberry", "Peach"]
 
 // b) Create the function that makes the test pass.
+
+const finder = (array,letter) =>{
+    s
+const newArray = array.filter(letter)
+return newArray
+
+}
+console.log(finder(fruitArray,letterA))
+
+
 
 // --------------------3) Create a function that takes in an array of 5 numbers and determines whether or not the array is a "full house". A full house is exactly one pair and one three of a kind.
 
