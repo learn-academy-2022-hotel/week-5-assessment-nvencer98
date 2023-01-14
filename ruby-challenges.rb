@@ -3,6 +3,13 @@
 
 # --------------------1) Create a method that takes in an array of words and a single letter and returns an array of all the words containing that particular letter. Use the test variables provided.
 
+
+# psuedo code: 
+#  input: takes in array of words and a single letter
+# output: all words containing the letter 
+# creat method. if string contains the letter then return. i coukd use .include for that. look up built in methods. method will take in 2 arguments.
+
+
 beverages_array = ['coffee', 'tea', 'juice', 'water', 'soda water']
 
 letter_o = 'o'
@@ -11,16 +18,52 @@ letter_t = 't'
 # Expected output: ['tea', 'water', 'soda water']
 
 
+def finder (array,letters)
+    array.select { |letter| letter.include?(letters)}
+end
+
+# p finder(beverages_array,letter_o)
+# p finder(beverages_array,letter_t)
+
+
 # -------------------2) Create a method that takes in a hash and returns one array with all the hash values at their own index and in alphabetical order. No nested arrays. Use the test variable provided.
 # HINT: Google 'ruby get rid of nested arrays'
 
+# psudeo code:
+# input: takes in hash
+# output: hash values at index and alphabetically
+# create method: look up resource, get the values of my keys, join them into a array, sort them in alphabetical order.
+
+
+
+
+
 us_states = { northwest: ['Washington', 'Oregon', 'Idaho'], southwest: ['California', 'Arizona', 'Nevada'], notheast: ['Maine', 'New Hampshire', 'Rhode Island'] }
+
+
+def machine (value)
+   value.values.flatten.sort
+end
+
+# p machine(us_states)
+
+
 # Expected output: ['Arizona', 'California', 'Idaho', 'Maine', 'Nevada', 'New Hampshire', 'Oregon', 'Rhode Island', 'Washington'] 
 
 
 # --------------------3a) Create a class called Bike that is initialized with a model, wheels, and current_speed. The default number of wheels is 2. The current_speed should start at 0. Create a bike_info method that returns a sentence with all the data from the bike object.
 
 # Expected output example: 'The Trek bike has 2 wheels and is going 0 mph.'
+
+# psuedo code:
+# input: class 
+# output: string
+# create my class with model, wheels, and current_speed.
+# add their values
+# create method that returns sentence with all the data
+# method: 
+
+
 
 
 
@@ -30,3 +73,40 @@ us_states = { northwest: ['Washington', 'Oregon', 'Idaho'], southwest: ['Califor
 # Expected output example: my_bike.pedal_faster(18) => 28
 # Expected output example: my_bike.brake(5) => 23
 # Expected output example: my_bike.brake(25) => 0
+
+
+
+
+class Bike 
+
+    def initialize(model)
+        @model = model
+        @wheels = 2
+        @current_speed = 0
+        
+    end
+    def get_info
+         "The  #{@model} bike has #{@wheels} wheels and is going #{@current_speed} mph."
+    end
+    def go_faster(num)
+        @current_speed = @current_speed + (num)
+
+    end
+    def brake(num)
+        if num >= @current_speed
+            @current_speed = 0
+        else @current_speed = @current_speed - num
+        end
+    end
+    
+        
+end
+
+
+mongoose = Bike.new('mongoose')
+
+mongoose.go_faster(5)
+mongoose.go_faster(5)
+mongoose.go_faster(5)
+mongoose.brake(5)
+p mongoose.get_info
